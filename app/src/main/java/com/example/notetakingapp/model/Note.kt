@@ -10,7 +10,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Note(
     @PrimaryKey
-    val id:Int,  //you can change the name of column with @ColumnInfo
-    val noteTitle:String,
-    val noteBody:String
+    public val id:Int,  //you can change the name of column with @ColumnInfo
+    public val noteTitle:String,
+    public val noteBody:String
 ):Parcelable

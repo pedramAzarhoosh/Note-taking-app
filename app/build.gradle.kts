@@ -36,6 +36,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
@@ -51,8 +54,10 @@ dependencies {
     val room_version = "2.6.1"
 
     implementation("androidx.room:room-runtime:$room_version")
+    //noinspection KaptUsageInsteadOfKsp
     kapt("androidx.room:room-compiler:$room_version")
 
+    //noinspection GradleDependency
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 
     val nav_version = "2.7.7"
@@ -63,5 +68,7 @@ dependencies {
     val arch_version = "2.2.0"
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    //noinspection LifecycleAnnotationProcessorWithJava8
     kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+    implementation("androidx.room:room-ktx:$room_version")
 }
