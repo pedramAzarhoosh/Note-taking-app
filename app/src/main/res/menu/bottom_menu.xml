@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/notes"
+        android:title="نوشته ها"
+        android:icon="@drawable/description_24dp_000000_fill0_wght400_grad0_opsz24"
+        />
+
+    <item android:id="@+id/bookmark_menu"
+        android:title="بوکمارک"
+        android:icon="@drawable/bookmark_24dp_000000_fill0_wght400_grad0_opsz24"
+        />
+</menu>

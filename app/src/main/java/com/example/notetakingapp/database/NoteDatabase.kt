@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.notetakingapp.model.Note
 
-@Database(entities = [Note::class], version = 1)
+@Database(entities = [Note::class], version = 2)
 abstract class NoteDatabase :RoomDatabase() {
 
     abstract fun getNote():NoteDAO
@@ -24,9 +26,13 @@ abstract class NoteDatabase :RoomDatabase() {
         }
 
         private fun createDatabase(context: Context) =
-            Room.databaseBuilder(context.applicationContext,
+            Room.databaseBuilder(
+                context.applicationContext,
                 NoteDatabase::class.java,
-                "note_db").build()
+                "note_db"
+            )
+                .fallbackToDestructiveMigration() // This will drop the database and recreate it on schema changes
+                .build()
 
     }
 }

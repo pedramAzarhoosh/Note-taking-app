@@ -1,11 +1,13 @@
 package com.example.notetakingapp.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -86,6 +88,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         val mSearch = menu.findItem(R.id.search_menu).actionView as SearchView
         mSearch.isSubmitButtonEnabled = false
         mSearch.setOnQueryTextListener(this)
+        mSearch.queryHint  = "وارد کنید..."
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
