@@ -89,6 +89,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         mSearch.isSubmitButtonEnabled = false
         mSearch.setOnQueryTextListener(this)
         mSearch.queryHint  = "وارد کنید..."
+        mSearch.setBackgroundColor(Color.WHITE)
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {

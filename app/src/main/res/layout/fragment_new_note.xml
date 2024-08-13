@@ -44,6 +44,7 @@
                     android:background="@drawable/edit_text_back_two"
                     android:padding="10dp"
                     android:layout_marginTop="10dp"
+                    android:justificationMode="inter_word"
                     android:id="@+id/noteDesEd" />
 
             </LinearLayout>

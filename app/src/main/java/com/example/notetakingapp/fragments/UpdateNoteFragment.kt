@@ -19,6 +19,8 @@ import com.example.notetakingapp.databinding.FragmentNewNoteBinding
 import com.example.notetakingapp.databinding.FragmentUpdateNoteBinding
 import com.example.notetakingapp.model.Note
 import com.example.notetakingapp.viewmodel.MyViewModel
+import java.text.SimpleDateFormat
+import java.util.Date
 
 
 class UpdateNoteFragment : Fragment(R.layout.fragment_update_note) {
@@ -53,7 +55,9 @@ class UpdateNoteFragment : Fragment(R.layout.fragment_update_note) {
         binding.fabDone.setOnClickListener{
             val title = binding.noteTitleEd.text.toString()
             val body = binding.noteDesEd.text.toString()
-            val note = Note(currNote.id,title,body)
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            val date = Date()
+            val note = Note(currNote.id,title,body,dateFormat.format(date))
             noteViewModel.updateNote(note)
             view.findNavController().navigate(R.id.action_updateNoteFragment_to_homeFragment)
         }

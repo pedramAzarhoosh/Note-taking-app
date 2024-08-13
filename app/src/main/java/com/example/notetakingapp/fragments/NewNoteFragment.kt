@@ -18,6 +18,8 @@ import com.example.notetakingapp.databinding.FragmentHomeBinding
 import com.example.notetakingapp.databinding.FragmentNewNoteBinding
 import com.example.notetakingapp.model.Note
 import com.example.notetakingapp.viewmodel.MyViewModel
+import java.text.SimpleDateFormat
+import java.util.Date
 
 
 class NewNoteFragment : Fragment(R.layout.fragment_new_note) {
@@ -52,8 +54,10 @@ class NewNoteFragment : Fragment(R.layout.fragment_new_note) {
     private fun saveNote(view:View){
         val noteTitle = binding.noteTitleEd.text.toString()
         val noteBody = binding.noteDesEd.text.toString()
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        val date = Date()
         if(noteTitle.isNotEmpty()){
-            val note = Note(0,noteTitle,noteBody)
+            val note = Note(0,noteTitle,noteBody,dateFormat.format(date))
             noteViewModel.addNote(note)
             view.findNavController().navigate(R.id.action_newNoteFragment_to_homeFragment)
         }else{

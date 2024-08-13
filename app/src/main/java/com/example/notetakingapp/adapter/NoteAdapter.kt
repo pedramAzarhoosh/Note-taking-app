@@ -37,7 +37,12 @@ class NoteAdapter:RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val currentNote = differ.currentList[position]
         holder.binding.noteTitle.text = currentNote.noteTitle
-        holder.binding.noteDes.text = currentNote.noteBody
+        var body:String
+        if(currentNote.noteBody.length>50){
+            body = currentNote.noteBody.substring(0,50) + "..."
+        }else body = currentNote.noteBody
+        holder.binding.noteDes.text = body
+        holder.binding.notePubDate.text = currentNote.pubDate
 
         holder.itemView.setOnClickListener{
             val direction = HomeFragmentDirections.actionHomeFragmentToUpdateNoteFragment(currentNote)

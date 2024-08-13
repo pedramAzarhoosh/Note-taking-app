@@ -12,5 +12,6 @@ data class Note(
     @PrimaryKey(autoGenerate = true)
     public val id:Int,  //you can change the name of column with @ColumnInfo
     public val noteTitle:String,
-    public val noteBody:String
+    public val noteBody:String,
+    public val pubDate:String
 ):Parcelable

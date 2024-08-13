@@ -8,7 +8,7 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.notetakingapp.model.Note
 
-@Database(entities = [Note::class], version = 2)
+@Database(entities = [Note::class], version = 3)
 abstract class NoteDatabase :RoomDatabase() {
 
     abstract fun getNote():NoteDAO
